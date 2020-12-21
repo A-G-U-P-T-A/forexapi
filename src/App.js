@@ -71,7 +71,10 @@ class App extends Component{
     }
 
     getForexData() {
-        fetch('https://v2.api.forex/rates/latest.json?beautify=true&key=4391e5c6-a569-4893-a92e-7dd32e694e49')
+        //{ mode: 'no-cors'}
+        //{method: 'get', headers: new Headers({'Access-Control-Allow-Origin': "*", 'Access-Control-Allow-Headers': "*"})}
+        fetch('https://v2.api.forex/rates/latest.json?beautify=true&key=4391e5c6-a569-4893-a92e-7dd32e694e49',
+            {method: 'get', headers: new Headers({'Access-Control-Allow-Origin': "*", 'Access-Control-Allow-Headers': "*"})})
             .then(response => response.json())
             .then(data => {
                 console.log(data);
